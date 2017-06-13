@@ -1,0 +1,272 @@
+<html>
+<head>
+<title>KUI</title>
+<meta charset="utf-8">
+
+<link href="../3rd/css/bootstrap.min.css" rel="stylesheet" />
+
+<script src="../3rd/js/jquery.min.js"></script>
+<script src="../3rd/js/svg-pan-zoom.min.js"></script>
+<script src="../3rd/js/jquery.svg.min.js"></script>
+
+<script src="../3rd/js/tether.min.js"></script>
+<script src="../3rd/js/moment.min.js"></script>
+
+<link href="../3rd/css/bootstrap-datetimepicker.min.css"
+	rel="stylesheet" />
+<script src="../3rd/js/bootstrap-datetimepicker.min.js"></script>
+
+<script src="../3rd/js/layer.js"></script>
+
+<script src="../3rd/js/echarts.min.js"></script>
+
+<link href="../dist/kui-all.css" rel="stylesheet" />
+<script src="../dist/kui-all.js"></script>
+</head>
+<body>
+	<div id="content" class="col-md-12">
+		<div class="col-md-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<a data-toggle="collapse" class="expanded" href="#L1">SVG大坝剖面图（面板必须展开，否则无法计算高度会报错）</a>
+				</div>
+				<div id="L1" class="panel-body collapse in height300"></div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<input id="search_criteria" class="form-control" placeholder="在此处搜索关键字">
+				</div>
+				<div id="searchbox" class="panel-body collapse in height100" data-url="/demo/searchbox.html"></div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<a data-toggle="collapse" class="collapsed" href="#div_sumtable">统计型汇总表格</a>
+				</div>
+				<div id="div_sumtable" class="panel-body collapse" data-url="/demo/sumtable.html"></div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<a data-toggle="collapse" class="collapsed" href="#ptable">分页表固定表头和列</a>
+				</div>
+				<div id="ptable" class="panel-body collapse" data-url="/demo/paginationtable.html"></div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<a data-toggle="collapse" class="collapsed" href="#ptable-legacy">分页表兼容以前版本</a>
+				</div>
+				<div id="ptable-legacy" class="panel-body collapse" data-url="/demo/paginationtable-legacy.html"></div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<a data-toggle="collapse" class="collapsed" href="#report">报表</a>
+				</div>
+				<div id="report" class="panel-body collapse" data-url="/demo/report.html"></div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<a data-toggle="collapse" class="collapsed" href="#controls">自定义控件</a>
+				</div>
+				<div id="controls" class="panel-body collapse form-horizontal"
+					data-url="/demo/controls.html"></div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<a data-toggle="collapse" class="collapsed" href="#buttons">业务化按钮</a>
+				</div>
+				<div id="buttons" class="panel-body collapse">
+					<button class="btn btn-save">保存</button>
+					<button class="btn btn-back">返回</button>
+					<button class="btn btn-export">导出</button>
+					<button class="btn btn-edit">新增</button>
+					<button class="btn btn-edit">编辑</button>
+					<button class="btn btn-dismiss">关闭</button>
+					<button class="btn btn-query">查询</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<a data-toggle="collapse" class="collapsed" href="#calendar">对话框</a>
+				</div>
+				<div id="calendar" class="panel-body collapse height100">
+					<button class="btn" onclick="dialog.success('这是成功提示框！')">成功</button>
+					<button class="btn" onclick="dialog.alert('这是警告提示框！')">警告</button>
+					<button class="btn" onclick="dialog.error('这是错误提示框！')">错误</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<a data-toggle="collapse" class="collapsed" href="#alarms">报警面板</a>
+				</div>
+				<div id="alarms" class="panel-body collapse"
+					data-url="/demo/alarms.html"></div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<a data-toggle="collapse" class="collapsed" href="#validation">验证框架</a>
+				</div>
+				<div id="validation" class="panel-body collapse"
+					data-url="/demo/validation.html"></div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<a data-toggle="collapse" class="collapsed" href="#colors">业务颜色</a>
+				</div>
+				<div id="colors" class="panel-body collapse">
+					<table>
+						<tr>
+							<td>水位</td>
+							<td class="water"></td>
+						</tr>
+						<tr>
+							<td>雨量</td>
+							<td class="rain"></td>
+						</tr>
+						<tr>
+							<td>蓄水量</td>
+							<td class="water"></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<a data-toggle="collapse" class="collapsed" href="#wicons">水利图标</a>
+				</div>
+				<div id="wicons" class="panel-body collapse">
+					<i class="iconfont icon-wendu"></i> <i
+						class="iconfont icon-yuliang"></i> <i
+						class="iconfont icon-shuiwei"></i>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<a data-toggle="collapse" class="collapsed" href="#wicons">图片展示</a>
+				</div>
+				<div id="wicons" class="panel-body collapse"></div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<a data-toggle="collapse" class="collapsed" href="#autoview">主动加载视图，在加载的视图中再加载视图</a>
+				</div>
+				<div id="autoview" class="panel-body collapse"
+					data-url="/demo/autoview.html"></div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<a data-toggle="collapse" class="collapsed" href="#lazyview">懒加载视图</a>
+				</div>
+				<div id="lazyview" class="panel-body collapse"
+					data-url="/demo/lazyview.html"></div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<a data-toggle="collapse" class="collapsed" href="#treeview">Treeview</a>
+				</div>
+				<div id="treeview" class="panel-body collapse">
+					<div id="tree" class="treeview col-md-3 height200"></div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<a data-toggle="collapse" class="collapsed" href="#rsrrzview">SVG实现水位示意图</a>
+				</div>
+				<div id="rsrrzview" class="panel-body collapse"
+					data-url="/demo/rsrrz.html"></div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-info">
+				<div class="panel-heading collapsed" data-toggle="collapse"
+					href="#clickable" style="cursor: pointer">整个标题栏都可以点击</div>
+				<div id="clickable" class="panel-body collapse height100">点开了
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<a data-toggle="collapse" class="collapsed" href="#hydrograph">过程线</a>
+				</div>
+				<div id="hydrograph" class="panel-body collapse"
+					data-url="/demo/hydrograph.html"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+<script>
+$(function() {
+    $(document.body).autoview();
+    
+    // 初始化树
+    $('#tree').treeview({
+        url: '/demo/treeview.data.json',
+        multiSelect: false,
+        showBorder: false
+    });
+    
+    // 加载svg
+    ajax.svg('/demo/L1.svg', $('#L1'), {}, function(svg) {
+        var panZoom = svgPanZoom('#L1 svg', {
+            zoomEnabled: true,
+            controlIconsEnabled: true,
+            fit: 1,
+            center: 1
+        });
+        panZoom.resize();
+        panZoom.fit();
+        panZoom.center();
+    });
+    
+    // 构建Affix
+    var ul = $('<ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="20">');
+    $('#content > div').each(function(idx, elm) {
+        var $div = $(elm);
+        var id= 'affix-' + idx;
+        var text = $div.find('.panel-heading').text();
+        $div.attr('id', id);
+        ul.append($('<li>').append($('<a>').attr('href', '#' + id).text(text)));
+    });
+    $('#agenda').append(ul);
+    $('nav ul').affix({});
+    
+    // 支持搜索
+    $('#search_criteria').searchbox();
+});
+
+</script>

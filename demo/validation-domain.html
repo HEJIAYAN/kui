@@ -1,0 +1,58 @@
+<html>
+<head>
+<meta charset="utf-8">
+<script src="../3rd/js/jquery-3.2.0.min.js"></script>
+<script src="../src/kui-validation.js"></script>
+</head>
+
+<body>
+<table border = 1>
+<thead>
+<tr>
+	<th>测试表达式</th>
+	<th>测试结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td>range[100, 200)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>range[-100, 200]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>regexp(/abcdef(5)/)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>-number(15, 2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mobile</td>
+	<td></td>
+</tr>
+<tr>
+	<td>cmpexp(start <= end)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>cmpexp(number(10,2), val2 > val1 && val2 > val0)</td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
+
+<script>
+$(document).ready(function () {
+	$('table tbody tr').each(function (idx, el) {
+		var expr = $(el).find('td:eq(0)').text();
+		var de = new ValidationModel(expr);
+		$(el).find('td:eq(1)').text(JSON.stringify({symbol: de.symbol, keyword: de.keyword, args: de.args})); 
+	});
+});
+</script>

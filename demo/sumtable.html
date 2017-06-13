@@ -1,0 +1,31 @@
+<div id="sumtable" style="width: 100%">
+
+</div>
+<script>
+var sumtable = new SumTable({
+    url: '/demo/data/sumtable.json',
+    containerId: 'sumtable',
+    columns: [{
+        title: '工程规模',
+        template: '{dimnm}',
+        totalText: '总计'
+    }, {
+        title: '入库数量（座）',
+        template: '{ttWrp}',
+        total: true
+    }, {
+        title: '水位上报（座）',
+        template: '{ttRz}',
+        total: true
+    }, {
+        title: '雨量上报（座）',
+        template: '{ttPp}',
+        total: true
+    }, {
+        title: '超汛限（座）',
+        template: '{ttFlv}',
+        total: true
+    }]
+});
+sumtable.render('sumtable');
+</script>

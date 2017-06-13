@@ -1,0 +1,85 @@
+<div id="hydro_times" class="pull-right input-group col-md-3" >
+    <span class="input-group-addon">
+        <i class="glyphicon glyphicon-calendar dropdown-toggle" data-toggle="dropdown" style="cursor: pointer"></i>
+        <ul class="dropdown-menu">
+            <li><a href="javascript:changeRangePicker('date')">日</a></li>
+            <li><a href="javascript:changeRangePicker('month')">月</a></li>
+        </ul>
+    </span>
+            
+    <input class="form-control" data-widget="rangepicker" 
+            data-rangepicker-type="date"
+            data-rangepicker-start="2017-01-01"
+            data-rangepicker-end="2017-04-30"/>
+    <input class="form-control" data-widget="rangepicker" 
+            data-rangepicker-type="month"
+            data-rangepicker-start="2017-01-01"
+            data-rangepicker-end="2017-04-30" style="display:none"/>
+</div>
+<ul id="myTab" class="nav nav-tabs">
+    <li class="active">
+        <a data-toggle="tab" href="#xHydrograph">水平位移过程线</a>
+    </li>
+    <li>
+        <a data-toggle="tab" href="#yHydrograph">垂直位移过程线</a>
+    </li>
+</ul>
+<div class="tab-content">
+    <div id="xHydrograph" class="tab-pane fade in active height500" style="width: 1500px;">
+        
+    </div>
+    <div id="yHydrograph" class="tab-pane fade height300" style="width: 1000px;">
+        
+    </div>
+</div>
+
+<script>
+$('#hydro_times input[data-widget=rangepicker]').each(function (idx, elm) {
+    $(elm).rangepicker();
+});
+
+function changeRangePicker(type) {
+    if (type === 'month') {
+        var elm = $('#hydro_times input[data-rangepicker-type=date]');
+        elm.css('display', 'none');
+        elm = $('#hydro_times input[data-rangepicker-type=month]');
+        elm.css('display', '');
+    } else {
+        var elm = $('#hydro_times input[data-rangepicker-type=month]');
+        elm.css('display', 'none');
+        elm = $('#hydro_times input[data-rangepicker-type=date]');
+        elm.css('display', '');
+    }
+}
+    
+var hydrograph_chart = new Hydrograph({
+    containerId: "xHydrograph",
+    url: "data/hydrograph.data.json",// "${contextPath}/ams/hydrograph/data.do",
+    sqlIds: ["t_datameas.selectCalculated", "env.day.rz2", "env.day.dyp2"],
+    method: "merge",
+    dateField: "tm",
+    groupField: "mpnm",
+    mixed: false,
+    title: "测点数据与水位雨量关系图",
+    charts: [{
+        name: ["测点值"], 
+        item: ["r1"], 
+        type: ["line"], 
+        axis: ["渗压力(kPa)"], 
+        color: ["#F2711C"],
+        grouping: 'r1'
+    }, {
+        name: ["库水位", "降雨量"], 
+        item: ["rz", "dyp"], 
+        type: ["line", "bar"], 
+        axis: ["库水位(m)", "降雨量(mm)"],
+        color: ["#74ccf4", "#2185D0"],
+        grouping: 'r1'
+    }]
+});
+
+hydrograph_chart.render({
+    wrp: '${wrp}', wrpcd: '${wrpcd}', wrpbld: '${wrpbld}', wrpbldcd: '${wrpbldcd}', crsc: '${sec.crsc}', mnritm: "${mnritm}", 
+    startDate: "${startDate}", endDate: "${endDate} 23:59:59", timeSeries: "day", display: '${sec.mm.display}'
+});
+</script>

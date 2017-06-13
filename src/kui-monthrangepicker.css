@@ -1,0 +1,190 @@
+.monthrangepicker {
+    opacity: 0;
+    transition: 0.12s ease-out;
+    transition-property: margin, padding, opacity
+}
+.monthrangepicker>.wrap {
+    position: relative;
+    min-width: 200px;
+    white-space: nowrap;
+    background: #FFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    max-height: 0;
+    transition: 0.12s ease-out;
+    transition-property: margin, padding, max-height
+}
+.monthrangepicker::before {
+    content: '\25B2';
+    position: absolute;
+    z-index: 1;
+    top: -15px;
+    left: 10px;
+    font-size: 20px;
+    text-shadow: 0 -2px 1px rgba(0, 0, 0, 0.2);
+    color: #FFF;
+    transform: scaleX(1.5)
+}
+.monthrangepicker.show {
+    z-index: 999;
+    bottom: auto;
+    margin-top: 10px;
+    opacity: 1
+}
+.monthrangepicker.show>.wrap {
+    max-height: 258px
+}
+.monthrangepicker.show.custom>.wrap {
+    padding: 0 430px 98px 0
+}
+.monthrangepicker.RTL::before {
+    left: auto;
+    right: 10px
+}
+.monthrangepicker.RTL.show.custom>.wrap {
+    padding: 0 0 98px 430px;
+    margin-left: -430px
+}
+.monthrangepicker.RTL>.wrap>.preset>button {
+    text-align: right
+}
+.monthrangepicker.RTL>.wrap>.preset>button[value="custom"]::after {
+    content: '\25C2';
+    right: auto;
+    left: 5px
+}
+.monthrangepicker.RTL>.wrap>.custom {
+    left: 0;
+    right: auto;
+    direction: rtl
+}
+.monthrangepicker.RTL>.wrap>.custom>.calendar>strong {
+    text-align: right
+}
+.monthrangepicker.RTL>.wrap>.custom>.calendar.from {
+    float: right
+}
+.monthrangepicker>.wrap>.custom>.calendar button,
+.monthrangepicker>.wrap>.preset button {
+    border: 1px solid transparent;
+    border-radius: 3px
+}
+.monthrangepicker>.wrap>.custom>.calendar button:hover,
+.monthrangepicker>.wrap>.preset button:hover {
+    background: rgba(59, 122, 181, 0.1)
+}
+.monthrangepicker>.wrap>.custom>.calendar button.selected,
+.monthrangepicker>.wrap>.preset button.selected {
+    background: #5985DE;
+    color: #FFF
+}
+.monthrangepicker>.wrap>.custom>.calendar button[disabled],
+.monthrangepicker>.wrap>.preset button[disabled] {
+    border-color: transparent;
+    background: none;
+    box-shadow: none;
+    opacity: .4;
+    cursor: default;
+    color: inherit
+}
+.monthrangepicker>.wrap .preset {
+    display: block;
+    text-transform: capitalize;
+    min-width: 110px;
+    padding: 3px;
+    width: 200px;
+    box-shadow: 0 100px #FFF;
+    position: relative;
+    z-index: 1;
+    background: #FFF;
+    box-sizing: border-box
+}
+.monthrangepicker>.wrap .preset button {
+    display: block;
+    width: 100%;
+    margin: 0;
+    background: none;
+    padding: 4px 8px;
+    text-align: left;
+    position: relative
+}
+.monthrangepicker>.wrap .preset button[value="custom"]::after {
+    content: '\25B8';
+    position: absolute;
+    right: 5px;
+    font-size: 21px;
+    opacity: 0.7
+}
+.monthrangepicker>.wrap .custom {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 6px;
+    transition: 0.4s cubic-bezier(0.77, 0.11, 0.22, 1)
+}
+.monthrangepicker>.wrap .custom>.calendar {
+    display: inline-block;
+    margin: 25px 3px 0;
+    width: 190px;
+    background: rgba(59, 122, 181, 0.1);
+    padding: 7px
+}
+.monthrangepicker>.wrap .custom strong {
+    display: block;
+    margin: -30px 0 10px
+}
+.monthrangepicker>.wrap .custom strong span {
+    text-transform: capitalize;
+    opacity: 0.9;
+    font-weight: normal;
+    display: inline-block;
+    margin-left: 6px
+}
+.monthrangepicker>.wrap .custom strong span:before {
+    content: '';
+    margin-right: 6px
+}
+.monthrangepicker>.wrap .custom .from strong:before {
+    content: '从'
+}
+.monthrangepicker>.wrap .custom .to strong:before {
+    content: '至'
+}
+.monthrangepicker footer {
+    display: block;
+    max-height: 40px;
+    padding: 5px;
+    overflow: hidden;
+    transition: 0.2s ease-out
+}
+.monthrangepicker footer button {
+    margin-left: 20px;
+    float: right
+}
+.monthrangepicker .set ~ footer {
+    max-height: 0;
+    padding: 0 5px;
+    border-color: transparent
+}
+.monthrangepicker select {
+    margin-bottom: 7px;
+    width: 100%
+}
+.monthrangepicker .calendar.from>select::after {
+    content: '从 '
+}
+.monthrangepicker .calendar.to>select::after {
+    content: '至 '
+}
+.monthrangepicker .wrap {
+    display: inline-block
+}
+.monthrangepicker .months button {
+    background: none;
+    float: left;
+    width: 33%;
+    margin: 0 0.15%;
+    padding: 5px;
+    text-transform: capitalize
+}

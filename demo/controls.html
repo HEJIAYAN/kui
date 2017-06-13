@@ -1,0 +1,43 @@
+<div class="form-group">
+    <label class="control-label col-sm-2">行政区：</label>
+    <div class="col-md-4">
+        <input id="district" readonly class="form-control" data-toggle="district-picker" placeholder="请选择行政区" style="width: 400px;"/>
+    </div>
+    <label class="control-label col-sm-2">日期区间：</label>
+    <div class="col-md-4">
+        <input class="form-control" data-widget="rangepicker" 
+            data-rangepicker-type="date"
+            data-rangepicker-start="2017-01-01"
+            data-rangepicker-end="2017-04-30"/>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-sm-2">月份区间：</label>
+    <div class="col-md-4">
+        <input class="form-control" data-widget="rangepicker" 
+            data-rangepicker-type="month"
+            data-rangepicker-start="2016-01"
+            data-rangepicker-end="2017-04"/>
+    </div>
+    <label class="control-label col-sm-2">年份：</label>
+    <div class="col-md-4">
+        <input class="form-control" name="year"/>
+    </div>
+</div>
+
+<script>
+$(function() {
+    $('input[name=year]').datetimepicker({
+        format: "yyyy",
+        startView: 4,
+        minView: 4,
+        autoclose: true
+    });
+
+    $('input[data-widget=rangepicker]').each(function (idx, elm) {
+        $(elm).rangepicker();
+    });
+    
+    $('#district').districtpicker({province: '500000', city: '500000'});
+});
+</script>

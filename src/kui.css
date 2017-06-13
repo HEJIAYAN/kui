@@ -1,0 +1,153 @@
+body {
+    font-family: "Microsoft YaHei"!important;
+}
+
+.water {
+    background-color: #74ccf4;
+}
+
+.rain {
+    background-color: #2185D0;
+}
+
+/*
+ * 业务面板
+ */
+.alarm {
+    position: relative;
+}
+
+.alarm.blue {
+    background-color: #2185D0;
+}
+
+.alarm.yellow {
+    background-color: #EAAE00;
+}
+
+.alarm.orange {
+    background-color: #FF851B;
+}
+
+.alarm.red {
+    background-color: #FF695E;
+}
+
+.alarm-title {
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+}
+
+.alarm-title:before {
+    font-size: 16px;
+    font-family: Glyphicons Halflings;
+    content: "\e107";
+    margin-right: 10px;
+}
+
+/*
+ * 业务按钮
+ */
+.btn-save {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
+}
+
+.btn-query {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
+}
+
+.btn-export {
+    color: #fff;
+    background-color: #31b0d5;
+    border-color: #269abc;
+}
+
+.btn-back {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.btn-edit {
+    color: #fff;
+    background-color: #ec971f;
+    border-color: #d58512;
+}
+
+.btn-dismiss {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+/* 
+ * 面板折叠伸展
+ */
+.collapsed:before {
+    font-family: Glyphicons Halflings;
+    content: "\e250";
+    margin-right: 10px;
+}
+
+.collapsed {
+    text-decoration: none!important;
+}
+
+.expanded:before {
+    font-family: Glyphicons Halflings;
+    content: "\e252";
+    margin-right: 10px;
+}
+
+.expanded {
+    text-decoration: none!important;
+}
+
+/* 
+ * 报表
+ */
+table.report {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+table.report > th, td {
+    border-collapse: collapse;
+    border: 1px solid black;
+    padding: 5px 15px 5px 15px;
+    text-align: center;
+}
+
+/* 
+ * div高度
+ */
+div.height200 {
+    height: 200px;
+    overflow: auto;
+}
+
+div.height300 {
+    height: 300px;
+    overflow: auto;
+}
+
+div.height400 {
+    height: 400px;
+    overflow: auto;
+}
+
+div.height500 {
+    height: 500px;
+    overflow: auto;
+}
+
+div.height600 {
+    height: 600px;
+    overflow: auto;
+}

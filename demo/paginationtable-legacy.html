@@ -1,0 +1,54 @@
+
+<div id="pagination-table-legacy" class="heigh500">
+</div>
+
+<script>
+var table = new PaginationTable({
+    url: 'data/paginationtable.json',
+    containerId: 'pagination-table-legacy',
+    limit: 15,
+    columns: [{
+        title: '水库名称',
+        template: '{rsnm}',
+    }, {
+        title: '工程规模',
+        template: '{prscnm}',
+    }, {
+        title: '行政区划',
+        template: '{addvnm}',
+    }, {
+        title: '当前水位（m）',
+        width: '250px',
+        template: '{rz}',
+    }, {
+        title: '当前累计雨量（mm）',
+        template: '{dyp}',
+    }, {
+        title: '最新水位上报时间',
+        template: '{dt}'
+    }, {
+        title: '报警',
+        rowspan: 2,
+        displayFunction: function (obj, td) {
+            if (typeof obj.lvl === 'undefined') {
+                td.append('无');
+                return;
+            }
+            var alarm = '无';
+            switch(obj.lvl + '') {
+            case '1': alarm = '红色'; break;
+            case '2': alarm = '橙色'; break;
+            case '3': alarm = '黄色'; break;
+            case '4': alarm = '蓝色'; break;
+            }
+            var a = $('<a href="#">');
+            a.on('click', function() {
+                
+            });
+            a.text(alarm);
+            td.append(a);
+        }
+    }]
+});
+table.render('pagination-table-legacy');
+</script>
