@@ -10037,7 +10037,7 @@ var PaginationTable = function(opts) {
     // 冻结的列数量，基于零开始冻结
     this.frozenColumnCount = opts.frozenColumnCount || 0;
     this.frozenHeader = opts.frozenHeader || false;
-    this.columnHeight = opts.columnHeight || '30px';
+    this.columnHeight = opts.columnHeight || '32px';
     
     this.boundedQuery = opts.boundedQuery || null;
     this.fixedColumns = opts.fixedColumn || 0;
