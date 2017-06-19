@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8' />
+    <title>查询构造器</title>
+    <link href='/3rd/css/bootstrap.min.css' rel='stylesheet'>
+    <link rel='stylesheet' type='text/css' media='all' href='../src/jquery.treeview-1.0.css' />
+    <script type='text/javascript' src='/3rd/js/jquery-3.2.1.min.js'></script>
+    <script type='text/javascript' src='/src/jquery.treeview-1.0.js'></script>
+    <script type='text/javascript' src='/src/kui-querybuilder.js'></script>
+    <style>
+        body {
+            font: 14px '微软雅黑';
+        }
+    </style>
+</head>
+<body>
+    <div class='row'>
+        <div id='metadata' class='col-xs-2'>
+
+        </div>
+        <div class="col-xs-10">
+            <div class="button-group" style="margin-bottom:  12px;">
+                <button class="btn btn-info">保存</button>
+            </div>
+            <div id='builder' class='col-xs-12'>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+var metadata = new TreeView({
+    local: [{
+        id: 'wrp_rsr_bsin',
+        name: '水库基本信息',
+        children: [{
+            id: 'rsnm__at__wrp_rsr_bsin',
+            name: '水库名称'
+        }, {
+            id: 'prsc__at__wrp_rsr_bsin',
+            name: '工程规模'
+        }, {
+            id: 'addvcd__at__wrp_rsr_bsin',
+            name: '行政区划'
+        }, {
+            id: 'vltw__at__wrp_rsr_bsin',
+            name: '乡镇'
+        }]
+    }, {
+        id: 'wrp_rsr_hych',
+        name: '水文特征值',
+        children: [{
+            id: 'flctllv__at__wrp_rsr_hych',
+            name: '汛限水位'
+        }, {
+            id: 'nrwlv__at__wrp_rsr_hych',
+            name: '正常蓄水位'
+        }]
+    }, {
+        id: 'wrp_rsr_dm',
+        name: '大坝',
+        children: [{
+            id: 'dmnm__at__wrp_rsr_dm',
+            name: '大坝名称'
+        }, {
+            id: 'dmtp__at__wrp_rsr_dm',
+            name: '坝型'
+        }, {
+            id: 'maxdmhg__at__wrp_rsr_dm',
+            name: '最大坝高'
+        }]
+    }],
+    draggable: true,
+    containerId: 'metadata',
+    idKey: 'id',
+    textKey: 'name'
+});
+metadata.render();
+
+new QueryBuilder({containerId: 'builder'});
+</script>
