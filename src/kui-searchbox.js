@@ -6,8 +6,11 @@ $.fn.searchbox = function(options) {
         var offset = input.offset();
         var left = offset.left;
         var top = offset.top + input.height();
+        var keyword = input.val();
+        if (keyword === '') return;
         $.ajax({
             url: options.url,
+            data: {keyword: keyword},
             dataType: 'json',
             success: function(data) {
                 displayResult(data, {left: left, top: top});
@@ -32,7 +35,7 @@ $.fn.searchbox = function(options) {
         
         var ul = $('<ul style="list-style: none">');
         for (var i = 0; i < data.rs.length; i++) {
-            var itm = data[i];
+            var itm = data.rs[i];
             var li = $('<li>');
             var a = $('<a style="cursor: pointer">');
             for (var k in itm) {
